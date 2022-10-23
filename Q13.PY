@@ -1,0 +1,29 @@
+import random  
+
+print('Jogo da palavra embaralhada')
+
+# Abre o arquivo para leitura
+arquivo = open('palavras-exerc11e13.txt', 'r')
+
+# Coloca todas as linhas em memoria
+palavras = arquivo.readlines()
+
+# Fecha o arquivo
+arquivo.close()
+
+palavraEscolhida = palavras[random.randint(0, len(palavras) - 1)].upper().strip()
+palavraEmbaralhada = ''.join(random.sample(palavraEscolhida,len(palavraEscolhida)))
+
+print(palavraEmbaralhada)
+
+for i in range(1, 7):
+    p = input('Digite a palavra pela %dº: ' % i).upper()
+
+    if p == palavraEscolhida:
+        print('Você acertou!')
+        break
+    else:
+        print('Você errou!')
+    if i == 6:
+        print('Você perdeu!')
+        break
